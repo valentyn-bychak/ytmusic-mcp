@@ -66,9 +66,16 @@ def auth_status() -> dict:
         return info
     try:
         yt = get_client()
-        account = yt.get_account_info()
-        info["account_name"] = account.get("accountName", "unknown")
-        info["channel_handle"] = account.get("channelHandle", "unknown")
+        try:
+            account = yt.get_account_info()
+            info["account_name"] = account.get("accountName", "unknown")
+            info["channel_handle"] = account.get("channelHandle", "unknown")
+        except Exception:
+            # get_account_info parser is fragile across YT response variants;
+            # fall back to a library call to confirm the session is authenticated.
+            yt.get_library_playlists(limit=1)
+            info["account_name"] = "(library accessible)"
+            info["channel_handle"] = "unknown"
         info["valid"] = True
     except Exception as exc:  # noqa: BLE001 — we want to surface any failure
         info["valid"] = False
