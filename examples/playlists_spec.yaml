@@ -1,0 +1,42 @@
+# Example spec for bulk_create_from_spec.
+# Run from Claude:  bulk_create_from_spec("/Users/valentine/Code/ytmusic-mcp/examples/playlists_spec.yaml")
+#
+# Each playlist gets created (PRIVATE by default), then tracks are added one
+# by one via search. Tracks that aren't found are reported in `missing`.
+
+playlists:
+  - name: "🕺 EN Dance Hard"
+    description: "Англомовна хардова туса. Хлопці з вибриками."
+    privacy: PRIVATE
+    tracks:
+      - "Take On Me a-ha remix"
+      - "I Gotta Feeling Black Eyed Peas"
+      - "Sweet Dreams Eurythmics"
+      - "Hung Up Madonna"
+      - "Dynamite Taio Cruz"
+      - "Tokyo Drift Teriyaki Boyz"
+      - "Booyah Showtek"
+
+  - name: "💃 EN Dance Lite"
+    description: "Англомовна туса, всі свої."
+    privacy: PRIVATE
+    tracks:
+      - "I'm Good Blue David Guetta Bebe Rexha"
+      - "Pump It Black Eyed Peas"
+      - "Louder DJ Fresh"
+      - "Uptown Funk Mark Ronson"
+      - "Dance Monkey Tones and I"
+      - "Despacito Luis Fonsi"
+      - "Wake Me Up Avicii"
+      - "Waiting For Love Avicii"
+      - "Starships Nicki Minaj"
+      - "Shape of You Ed Sheeran remix"
+      - "Espresso Sabrina Carpenter"
+
+  - name: "🏠 Vibe Peak"
+    description: "Коли вже випили — Корж, Скриптонит, Miyagi."
+    privacy: PRIVATE
+    tracks:
+      - "Макс Корж Тебя там нет"
+      - "Скриптонит вп"
+      - "Miyagi Эндшпиль I got love"

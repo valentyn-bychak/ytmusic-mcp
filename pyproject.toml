@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ytmusic-mcp"
+version = "0.1.0"
+description = "YouTube Music MCP server with playlist management, search, and smart recommendations"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Valentyn Bychak" }
+]
+dependencies = [
+    # Pinned for stability. Bump deliberately after testing.
+    "mcp[cli]>=1.0.0,<2.0.0",
+    "ytmusicapi==1.11.0",
+    "PyYAML>=6.0,<7.0",
+]
+
+[project.scripts]
+ytmusic-mcp = "ytmusic_mcp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
